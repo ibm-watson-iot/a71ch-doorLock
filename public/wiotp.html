@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+Change to Eclipse Public License (EPL) 1.0
+/**
+ * Copyright (c) 2016 IBM Corporation and other Contributors. All Rights Reserved.
+ *
+ * Licensed under the Eclipse Public License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.eclipse.org/legal/epl-v10.html
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="lt-ie10" lang="en" > <![endif]-->
+
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>WIoT A71CH Door Lock</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>    
+    <link rel="stylesheet" href="css/main.css">    
+    <script src="js/vendor/modernizr.js"></script>
+    <script>
+    function popupTarget(form) {
+        window.open('', 'responsePopup', 'width=400,height=400,resizeable,scrollbars');
+        form.target = 'responsePopup';
+    }
+    </script>
+    <!--[if lt IE 9]>
+        <script src="js/vendor/html5-3.6-respond-1.1.0.min.js"></script>    <![endif]-->
+  </head>
+  <body>
+      <!--[if lt IE 7]>
+          <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+      <![endif]-->
+    <!--
+current.source is welcome, public.app.en._data is [object Object], public.app.en._data.pages is [object Object], public.app.en._data.pages.length is ,pageCount is 9  -->
+  
+                    <div class="container-nav">
+  <div class="container" style="margin-top: 0em; margin-bottom: 0em;padding: 0em">
+    <div class="layout-nav">
+      <div class="gutter-page"></div>
+          <img class="mol-nav-logo" src="images/index.jpg" /> <span class="mol-nav-header">NXP A71CH Ready for Watson IoT - Door Lock &nbsp; &nbsp; </span> <img class="mol-nav-logo" src="https://www.nxp.com/resources/images/nxp-logo.svg" /> </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="layout-wrapper">
+    <div class="gutter-page"> </div>
+
+      <div class="sidebar">
+        <ul class="side-nav" role="navigation" title="Link List">
+          <li class="mol-sidebar-header" role="menuTitle">Contents</li>
+          <li role="menuitem"> <a class="" href="/"> Introduction </a> </li>
+          <li role="menuitem"> <a class="mol-sidebar-select" href="/wiotp.html"> Watson IoT Platform </a> </li>
+          <li role="menuitem"> <a class="" href="/approve"> Device Registration </a> </li>
+          <li role="menuitem"> <a class="" href="/getDevices"> Registered Devices </a> </li>
+        </ul>
+        <img src="images/dlock_app.png" />
+      </div>
+
+      <div class="content">
+        <div class="content-row">
+        <div class="content-header"> <header class="org-header"> Watson IoT Platform </header> </div>      
+      </div>
+
+      <div class="content-body">
+        <section>
+            <p class="org-paragraph">
+              IBM Watson IoT Platform service is used to define device types, connect devices 
+              securely, and manage the flow of device data. You need to configure IBM Watson 
+              IoT Platfor service to connect NXP A71CH Ready for Watson IoT devices and 
+              manage device data flow. 
+            </p>
+
+            <p class="org-paragraph">
+            <b>1. Register NXP Certificate Authority</b> </p>
+NXP A71CH Ready for Watson IoT is an A71CH device that has been trust provisioned by NXP 
+with credentials (one EC key pair, one Device X509 certificate and one Gateway X509 certificate) 
+supporting TLS access to Watson IoT. For these devices to securely connect with Watson IoT Platform 
+service, you need to register NXP Certificate Authority with Watson IoT Platform service. </p>
+
+            <p class="org-paragraph">
+            <b>2. Configure Connection Security Policy </b></p>
+NXP A71CH devices to connect using TLS, set Default Connection Security to TLS with Client Certificate Authentication. </p>
+
+            <p class="org-paragraph">
+            <b>3. Register Device Types </b></p>
+NXP A71CH Watson IoT type devices are trust provisioned with a Device X509 certificate and 
+a Gateway X509 certificate. If you want to configure and connect a device, register NXP-A71CH-D 
+as a generic device type with Watson IoT Platform service. If you want to configure and connect 
+a gateway, register NXP-A71CH-G as a generic gateway type. </p>
+
+            <p class="org-paragraph">
+            &nbsp; </p>
+
+            <p class="org-paragraph">
+              This application provides a single click option to configure Watson IoT Platform service.<br>
+              This application also describes the steps needed to manually configure
+              Watson IoT Platform service.
+            </p>
+
+            <p class="org-title"> Single click option to configure Watson IoT Platform service </p>
+            <p class="org-paragraph">
+<form method="post" action="wiotpConfig" id="wiotpConfig" onsubmit="popupTarget(this)">
+To configure IBM Watson IoT Platform service, click <input type="submit" value="here." style="background-color: #ADD8E6;" />.  </form> </p>
+
+
+            <p class="org-paragraph">
+            &nbsp; </p>
+
+            <p class="org-title"> Steps to manually configure Watson IoT Platform service </p>
+            <p class="org-paragraph">
+              The following sections describe the steps to manually configure IBM Watson 
+              IoT Platform service.
+            </p>
+            
+            <p class="org-paragraph">
+            <b> Register NXP Certificate Authority </b></p>
+you can down load and register NXP CA and Intermediate certificates, using
+Watson IoT Platform dashboard. Refer to  the instructions in the section on "Configuring certificates"
+in the following link:<br>
+<a href="https://console.bluemix.net/docs/services/IoT/reference/security/set_up_certificates.html#set_up_certificates"> Registering Certificate Authority (CA) certificates for device authentication </a> </p>
+
+The NXP CA (Root-of-trust) and Intermediate CA certificates are available for download from:<br> 
+- <a href="https://www.gp-ca.nxp.com/CA/getCA?caid=63709315030001"> NXP Root Certificate Authority </a><br>
+- <a href="https://www.gp-ca.nxp.com/CA/getCA?caid=63709315040001"> NXP Intermediate Certificate Authority </a> </p>
+
+            <p class="org-paragraph">
+            <b> Configure Connection Security Policy </b> </p>
+Follow the instructions in the documentation on how to configure connection security policy. 
+Refer to the section "Configuring connection security policies for advanced security" in the following link:<br>
+<a href="https://console.bluemix.net/docs/services/IoT/reference/security/set_up_policies.html#set_up_policies.md"> Configuring security policies </a> </p>
+
+
+            <p class="org-paragraph">
+            <b> Register Device Types </b> </p>
+Refer to the instructions in the following link to register your 
+device (NXP-A71CH-D) or gateway (NXP-A71CH-G): <br>
+<a href="https://console.bluemix.net/docs/services/IoT/iotplatform_task.html#iotplatform_task"> Registering your device with Watson IoT Platform </a> </p>
+
+        </section>
+
+      </div>
+      <div class="content-row-footer">
+          <div class="content-footer">        
+          <footer>
+              <div class="mol-button-region">
+              </div>
+          </footer>
+          </div>
+      </div>
+      
+    </div>
+    <div class="gutter-page"> </div>
+  </div>
+</div>
+
+<script src="js/vendor/jquery.js"></script>    
+<script src="js/vendor/foundation.min.js"></script>    
+<script src="js/main.min.js"></script>            
+
+</body>
+</html>

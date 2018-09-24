@@ -1,0 +1,1741 @@
+[
+    {
+        "id": "daad7862.cf0058",
+        "type": "tab",
+        "label": "WIoTP Configuration",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d6f13981.f9b9a",
+        "type": "tab",
+        "label": "Device Registration",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4c26cae5.e5121c",
+        "type": "tab",
+        "label": "Device Status",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f66aaddd.f91188",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "183e7374.fb9da5",
+        "type": "http in",
+        "z": "d6f13981.f9b9a",
+        "name": "Device Approval",
+        "url": "/approve",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "4253037d.d63844"
+            ]
+        ]
+    },
+    {
+        "id": "b7e6ae9c.122c98",
+        "type": "template",
+        "z": "d6f13981.f9b9a",
+        "name": "Response",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html class=\"no-js\" lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\n    <title>WIoT A71CH Enabled Secured Door Lock</title>\n    <meta name=\"description\" content=\"\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <link rel=\"shortcut icon\" type=\"image/png\" href=\"../../images/favicon.png\"/>\n    <link rel=\"stylesheet\" href=\"../../css/main.css\">\n    <!- meta http-equiv=\"refresh\" content=\"10\" / -->\n    <style type=\"text/css\">\n        {{{payload.style}}}\n    </style>\n    <script src=\"../../js/vendor/modernizr.js\"></script>\n    <script>\n    function popupTarget(form) {\n        window.open('', 'responsePopup', 'width=400,height=400,resizeable,scrollbars');\n        form.target = 'responsePopup';\n    }\n    </script>\n    <!--[if lt IE 9]>\n        <script src=\"../../js/vendor/html5-3.6-respond-1.1.0.min.js\"></script>    <![endif]-->\n  </head>\n  <body>\n      <!--[if lt IE 7]>\n          <p class=\"chromeframe\">You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/\">upgrade your browser</a> or <a href=\"http://www.google.com/chromeframe/?redirect=true\">activate Google Chrome Frame</a> to improve your experience.</p>\n      <![endif]-->\n    <!--\ncurrent.source is welcome, public.app.en._data is [object Object], public.app.en._data.pages is [object Object], public.app.en._data.pages.length is ,pageCount is 9  -->\n\n    <div class=\"container-nav\">\n      <div class=\"container\" style=\"margin-top: 0em; margin-bottom: 0em;padding: 0em\">\n        <div class=\"layout-nav\">\n          <div class=\"gutter-page\"></div>\n          <img class=\"mol-nav-logo\" src=\"../../images/index.jpg\" /> <span class=\"mol-nav-header\"> NXP A71CH Ready for Watson IoT - Door Lock </span> <img class=\"mol-nav-logo\" src=\"{{ global.nxplogourl }}\" /> </div>\n  </div>\n</div>\n\n<div class=\"container\">\n  <div class=\"layout-wrapper\">\n    <div class=\"gutter-page\"> </div>\n\n      <div class=\"sidebar\">\n        <ul class=\"side-nav\" role=\"navigation\" title=\"Link List\">\n          <li class=\"mol-sidebar-header\" role=\"menuTitle\">Contents</li>\n          <li role=\"menuitem\"> <a class=\"\" href=\"/\"> Introduction </a> </li>\n          <li role=\"menuitem\"> <a class=\"\" href=\"/wiotp.html\"> Watson IoT Platform </a> </li>\n          <li role=\"menuitem\"> <a class=\"mol-sidebar-select\" href=\"/approve\"> Device Registration </a> </li>\n          <li role=\"menuitem\"> <a class=\"\" href=\"/getDevices\"> Registered Devices </a> </li>\n        </ul>\n        <img src=\"images/dlock_app.png\" />\n      </div>\n\n\n      <div class=\"content\">\n        <div class=\"content-row\">\n        <div class=\"content-header\"> <header class=\"org-header\"> Device Provisioing Service </header> </div>\n      </div>\n\n      <div class=\"content-body\">\n        <section>\n            <p class=\"org-paragraph\">\n                Connecting a device to IBM Watson™ IoT Platform involves registering the device with \n                Watson IoT Platform and then using the registration information to configure the device to \n                connect to Watson IoT Platform. The Device provisioning service in this application has \n                two options for the Administrators to register devices. </p>\n               \n            <p class=\"org-title\"> 1. Configure Device </p>\n            <p class=\"org-paragraph\">   \n                Use this option to register device by providing device ID and type. </p>\n                \n                <form method=\"post\" action=\"sendRegistrationData\" onsubmit=\"popupTarget(this)\">\n                <table id=\"stats\" width=\"50%\">\n                <tr><th>DeviceId</th><th>DeviceType</th><th>&nbsp;</th></tr>\n                <tr>\n                <td><input type=\"text\" name=\"deviceId\"> </td>\n                <td><select size=\"1\" name=\"typeId\" ><option value=\"NXP-A71CH-D\">NXP-A71CH-D</option><option value=\"NXP-A71CH-G\">NXP-A71CH-G</option></select> </td>\n                <td><input type=\"hidden\" name=\"lockStatus\" value=\"unknown\"><input type=\"hidden\" name=\"registered\" value=\"true\"><input type=\"submit\" value=\"Approve\" /></td>\n                </tr>\n                </table>\n                </form></p>\n\n            <p class=\"org-title\"> 2. Approve Device Registration </p>\n            <p class=\"org-paragraph\">\n                Devices can be configured to send device information to the provisioning service by\n                invoking a REST call provided by this application. The incoming registration requests are\n                displayed in the table below. Administartors can review and approve the request. On approval,\n                this application registers the devie with IBM Watson™ IoT Platform. </p>\n                    \n            <form method=\"post\" action=\"sendRegistrationData\" onsubmit=\"popupTarget(this)\">\n                <table id=\"stats\" width=\"50%\">\n                  <tr>\n                    <th>DeviceId</th>\n                    <th>DeviceType</th>\n                    <th>Approve and Register</th>\n                  </tr>\n                  {{#payload}}\n                  <tr>\n                    <td>{{{deviceId}}}</td>\n                    <td>{{typeId}}</td>\n                    <td style=\"text-align:center\"><input type=\"hidden\" name=\"deviceId\" id=\"devId\" value=\"{{deviceId}}\">\n                    <input type=\"hidden\" name=\"typeId\" id=\"devType\" value=\"{{typeId}}\">\n                    <input type=\"hidden\" name=\"lockStatus\" id=\"lockStatus\" value=\"{{lockStatus}}\">\n                    <input type=\"hidden\" name=\"registered\" id=\"registered\" value=\"{{registered}}\">\n                    <input type=\"submit\" value=\"Approve\" /></td>\n                  </tr>\n                  {{/payload}}\n                </table>\n            </form>\n\n        </section>\n        \n      </div>\n      <div class=\"content-row-footer\">\n          <div class=\"content-footer\">\n          <footer>\n              <div class=\"mol-button-region\">\n              </div>\n          </footer>\n          </div>\n      </div>\n\n      </div>\n\n    </div>\n    <div class=\"gutter-page\"> </div>\n  </div>\n</div>\n\n<script src=\"../../js/vendor/jquery.js\"></script>\n<script src=\"../../js/vendor/foundation.min.js\"></script>\n<script src=\"../../js/main.min.js\"></script>\n\n</body>\n</html>\n",
+        "x": 700,
+        "y": 260,
+        "wires": [
+            [
+                "57e70476.63beac"
+            ]
+        ]
+    },
+    {
+        "id": "57e70476.63beac",
+        "type": "http response",
+        "z": "d6f13981.f9b9a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 870,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "a958a927.3c6d2",
+        "type": "http in",
+        "z": "d6f13981.f9b9a",
+        "name": "Send Registration Request",
+        "url": "/sendRegistrationData",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 400,
+        "wires": [
+            [
+                "72354001.f10678"
+            ]
+        ]
+    },
+    {
+        "id": "2a9777ff.1f5f9",
+        "type": "function",
+        "z": "d6f13981.f9b9a",
+        "name": "DeviceData",
+        "func": "// process post data and send to WIoTP\n\nvar deviceToken = global.get('devicetoken');\n\nvar uuid = msg.payload.deviceId;\nvar type = msg.payload.typeId;\n\nvar payload = [];\nvar retmsg = {};\n\nretmsg.method = \"post\";\nretmsg.url = \"https://\" + global.get('iotfHost')  + \"/api/v0002/bulk/devices/add\";\n\n// Set Authorization in message headers from VCAP informtion\nvar auth = 'Basic ' + new Buffer(global.get('iotfAPIKey') + ':' + global.get('iotfAPIToken')).toString('base64');\nvar headers = {};\nheaders[\"Authorization\"] = auth;\nretmsg.headers = headers;\n\nvar data = {};\nvar deviceInfo = {};\nvar location = {};\nvar metadata = {};\n    \ndata[\"typeId\"] = type;\ndata[\"deviceId\"] = uuid;\ndata[\"authToken\"] = deviceToken;\ndata[\"deviceInfo\"] = deviceInfo;\ndata[\"location\"] = location;\ndata[\"metadata\"] = metadata;\n    \npayload.push(data);\nretmsg.payload = payload;\nreturn retmsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 594,
+        "y": 427,
+        "wires": [
+            [
+                "8aa4fe69.636d9"
+            ]
+        ]
+    },
+    {
+        "id": "8aa4fe69.636d9",
+        "type": "http request",
+        "z": "d6f13981.f9b9a",
+        "name": "Register",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 767,
+        "y": 427,
+        "wires": [
+            [
+                "ec098ad0.c9334"
+            ]
+        ]
+    },
+    {
+        "id": "95605bd5.730b78",
+        "type": "template",
+        "z": "d6f13981.f9b9a",
+        "name": "Response",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n<head>\n<script>\nfunction closeWindow()\n{\n    window.close();\n}\n</script>\n</head>\n<body>\n   \n<h3>Secured Door Lock - Device Registration</h3>\n\nThe following device is registered: </p>\nDevice ID: {{ data.payload.deviceId }} <br>\nDevice Type: {{ data.payload.typeId }}\n\n</p>\n\n<form><input type=\"button\" onClick=\"closeWindow()\" value=\"Close\" /></form>\n\n</body>\n</html>",
+        "x": 586,
+        "y": 374,
+        "wires": [
+            [
+                "227c6322.a5a57c"
+            ]
+        ]
+    },
+    {
+        "id": "227c6322.a5a57c",
+        "type": "http response",
+        "z": "d6f13981.f9b9a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 774,
+        "y": 374,
+        "wires": []
+    },
+    {
+        "id": "72354001.f10678",
+        "type": "function",
+        "z": "d6f13981.f9b9a",
+        "name": "SetContext",
+        "func": "context.data = context.data || new Object();\nif ( msg.payload === undefined ) {\n    context.data.payload = {};\n    context.data.payload.deviceId = \"\";\n    context.data.payload.typeId = \"\";\n    context.data.total = 0;\n    msg.data = context.data;\n} else {\n    if ( msg.payload.deviceId === undefined ) {\n        context.data.total = 0;\n    } else {\n        context.data.total = 1;\n    }\n    context.data.payload = msg.payload;\n    msg.data = context.data;\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 394,
+        "y": 400,
+        "wires": [
+            [
+                "2a9777ff.1f5f9",
+                "95605bd5.730b78"
+            ]
+        ]
+    },
+    {
+        "id": "ee511b94.268668",
+        "type": "http in",
+        "z": "d6f13981.f9b9a",
+        "name": "Get Device Data",
+        "url": "/getDevices",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 620,
+        "wires": [
+            [
+                "b3bbc46d.fda868",
+                "ad8f7c71.a03f38"
+            ]
+        ]
+    },
+    {
+        "id": "ee644a10.19679",
+        "type": "template",
+        "z": "d6f13981.f9b9a",
+        "name": "Response",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html class=\"no-js\" lang=\"en\">\n  <head>\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\n    <title>WIoT A71CH Enabled Secured Door Lock</title>\n    <meta name=\"description\" content=\"\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <link rel=\"shortcut icon\" type=\"image/png\" href=\"../../images/favicon.png\"/>\n    <link rel=\"stylesheet\" href=\"../../css/main.css\">\n    <!- meta http-equiv=\"refresh\" content=\"10\" / -->\n    <style type=\"text/css\">\n        {{{payload.style}}}\n    </style>\n    <script src=\"../../js/vendor/modernizr.js\"></script>\n    <script>\n    function  showLockStatus(elem) {\n        var form = document.getElementById('devStatus');\n        var table = document.getElementById('stats');\n        var r = elem.parentNode.parentNode.rowIndex;\n        var idcol = elem.parentNode.cellIndex - 2;\n        var typecol = elem.parentNode.cellIndex - 1;\n        var deviceId = table.rows[r].cells[idcol].innerHTML;\n        var typeId = table.rows[r].cells[typecol].innerHTML;\n        document.getElementById('did').value=deviceId ; \n        document.getElementById('tid').value=typeId ;\n        // alert(\" row\" + r + \" - id=\" +  deviceId + \" type=\" + typeId);\n        window.open('', 'statusPopup', 'width=650,height=750,resizeable,scrollbars');\n        form.target = 'statusPopup';\n        form.submit();\n    }\n    </script>\n    <!--[if lt IE 9]>\n        <script src=\"../../js/vendor/html5-3.6-respond-1.1.0.min.js\"></script>    <![endif]-->\n  </head>\n  <body>\n      <!--[if lt IE 7]>\n          <p class=\"chromeframe\">You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/\">upgrade your browser</a> or <a href=\"http://www.google.com/chromeframe/?redirect=true\">activate Google Chrome Frame</a> to improve your experience.</p>\n      <![endif]-->\n    <!--\ncurrent.source is welcome, public.app.en._data is [object Object], public.app.en._data.pages is [object Object], public.app.en._data.pages.length is ,pageCount is 9  -->\n\n    <div class=\"container-nav\">\n      <div class=\"container\" style=\"margin-top: 0em; margin-bottom: 0em;padding: 0em\">\n        <div class=\"layout-nav\">\n          <div class=\"gutter-page\"></div>\n          <img class=\"mol-nav-logo\" src=\"../../images/index.jpg\" /> <span class=\"mol-nav-header\"> NXP A71CH Ready for Watson IoT - Door Lock  </span> <img class=\"mol-nav-logo\" src=\"{{ global.nxplogourl }}\" /> </div>\n  </div>\n</div>\n\n<div class=\"container\">\n  <div class=\"layout-wrapper\">\n    <div class=\"gutter-page\"> </div>\n\n      <div class=\"sidebar\">\n        <ul class=\"side-nav\" role=\"navigation\" title=\"Link List\">\n          <li class=\"mol-sidebar-header\" role=\"menuTitle\">Contents</li>\n          <li role=\"menuitem\"> <a class=\"\" href=\"/\"> Introduction </a> </li>\n          <li role=\"menuitem\"> <a class=\"\" href=\"/wiotp.html\"> Watson IoT Platform </a> </li>\n          <li role=\"menuitem\"> <a class=\"\" href=\"/approve\"> Device Registration </a> </li>\n          <li role=\"menuitem\"> <a class=\"mol-sidebar-select\" href=\"/getDevices\"> Registered Devices </a> </li>\n        </ul>\n        <img src=\"images/dlock_app.png\" />\n      </div>\n\n\n      <div class=\"content\">\n        <div class=\"content-row\">\n        <div class=\"content-header\"> <header class=\"org-header\"> Registered Devices </header> </div>\n      </div>\n\n      <div class=\"content-body\">\n        <section>\n            <p class=\"org-title\"> List of Registered Devices </p>\n            <p class=\"org-paragraph\">\n                The following devices are registered with Watson IoT Platform.</p>\n                   \n            <table id=\"stats\" width=\"50%\">\n              <tr>\n                <th>DeviceId</th>\n                <th>DeviceType</th>\n                <th>DeviceStatus</th>\n              </tr>\n              {{#payload}}\n              <tr>\n                <td>{{{deviceId}}}</td>\n                <td>{{typeId}}</td>\n                <td> <input type=\"button\" value=\"Show Status\" onclick=\"showLockStatus(this)\" /> </td>\n              </tr>\n              {{/payload}}\n            </table>\n            \n            <form id=\"devStatus\" method=\"get\" action=\"lockStatus\">\n                <input type=\"hidden\" id=\"did\" name=\"deviceId\" value=\"deviceId\" />\n                <input type=\"hidden\" id=\"tid\" name=\"typeId\" value=\"typeId\" />\n            </form>\n            \n        </section>\n        \n      </div>\n      <div class=\"content-row-footer\">\n          <div class=\"content-footer\">\n          <footer>\n              <div class=\"mol-button-region\">\n              </div>\n          </footer>\n          </div>\n      </div>\n\n      </div>\n\n    </div>\n    <div class=\"gutter-page\"> </div>\n  </div>\n</div>\n\n<script src=\"../../js/vendor/jquery.js\"></script>\n<script src=\"../../js/vendor/foundation.min.js\"></script>\n<script src=\"../../js/main.min.js\"></script>\n\n</body>\n</html>\n",
+        "x": 820,
+        "y": 620,
+        "wires": [
+            [
+                "9ab40a6.c859878",
+                "a285699c.6b5558"
+            ]
+        ]
+    },
+    {
+        "id": "9ab40a6.c859878",
+        "type": "http response",
+        "z": "d6f13981.f9b9a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 990,
+        "y": 619,
+        "wires": []
+    },
+    {
+        "id": "a285699c.6b5558",
+        "type": "debug",
+        "z": "d6f13981.f9b9a",
+        "name": "dbg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 990,
+        "y": 579,
+        "wires": []
+    },
+    {
+        "id": "2fb0dfb9.86c66",
+        "type": "function",
+        "z": "d6f13981.f9b9a",
+        "name": "SetContext",
+        "func": "var payload = global.get('devices');\n\nmsg.payload =  payload;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 510,
+        "y": 620,
+        "wires": [
+            [
+                "4ac8aa89.796c4c"
+            ]
+        ]
+    },
+    {
+        "id": "4ac8aa89.796c4c",
+        "type": "template",
+        "z": "d6f13981.f9b9a",
+        "name": "css",
+        "field": "payload.style",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "\n#stats {\n    font-family: \"Trebuchet MS\", Arial, Helvetica, sans-serif;\n    border-collapse: collapse;\n    width: 50%;\n}\n\n#stats td{\n    border: 1px solid #ddd;\n    padding: 8px;\n}\n\n#stats tr:nth-child(even){background-color: #00ffff;}\n\n#stats tr:hover {background-color: #ddd;}\n\n#stats th {\n    padding-top: 12px;\n    padding-bottom: 12px;\n    text-align: left;\n    background-color: #00bfff;\n    color: white;\n}\n",
+        "x": 690,
+        "y": 620,
+        "wires": [
+            [
+                "ee644a10.19679"
+            ]
+        ]
+    },
+    {
+        "id": "ec098ad0.c9334",
+        "type": "function",
+        "z": "d6f13981.f9b9a",
+        "name": "SetGETRequest",
+        "func": "var msg = {};\nmsg.method = \"get\";\n//msg.url = \"https://k684is.internetofthings.ibmcloud.com/api/v0002/device/types/NXPDevice/devices\";\nmsg.url = \"https://\" + global.get('iotfHost') + \"/api/v0002/bulk/devices\";\n\n\n// Set Authorization in message headers from VCAP informtion\nvar auth = 'Basic ' + new Buffer(global.get('iotfAPIKey') + ':' + global.get('iotfAPIToken')).toString('base64');\nvar headers = {};\nheaders[\"Authorization\"] = auth;\nmsg.headers = headers;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 940,
+        "y": 427,
+        "wires": [
+            [
+                "ba25570e.01ed88"
+            ]
+        ]
+    },
+    {
+        "id": "ba25570e.01ed88",
+        "type": "http request",
+        "z": "d6f13981.f9b9a",
+        "name": "MakeRequest",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 700,
+        "y": 500,
+        "wires": [
+            [
+                "b7bedf8e.48b8f"
+            ]
+        ]
+    },
+    {
+        "id": "b7bedf8e.48b8f",
+        "type": "json",
+        "z": "d6f13981.f9b9a",
+        "name": "",
+        "pretty": false,
+        "x": 870,
+        "y": 500,
+        "wires": [
+            [
+                "83611840.952b28"
+            ]
+        ]
+    },
+    {
+        "id": "83611840.952b28",
+        "type": "function",
+        "z": "d6f13981.f9b9a",
+        "name": "SetContext",
+        "func": "\nvar results = msg.payload.results;\nvar j;\nvar payload = [];\nfor (j=0;j<results.length;j++) {\n    var tdata = {};\n    tdata.deviceId = results[j].deviceId;\n    tdata.typeId = results[j].typeId;\n    payload.push(tdata);\n}\n\n// Store device data in global context \nglobal.set('devices', payload);\n\nmsg.payload =  payload;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1010,
+        "y": 500,
+        "wires": [
+            [
+                "1124e801.2e0b68"
+            ]
+        ]
+    },
+    {
+        "id": "1124e801.2e0b68",
+        "type": "debug",
+        "z": "d6f13981.f9b9a",
+        "name": "dbg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1150,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "ad8f7c71.a03f38",
+        "type": "function",
+        "z": "d6f13981.f9b9a",
+        "name": "SetGETRequest",
+        "func": "var msg = {};\nmsg.method = \"get\";\n// msg.url = \"https://k684is.internetofthings.ibmcloud.com/api/v0002/device/types/NXPDevice/devices\";\nmsg.url = \"https://\" + global.get('iotfHost')  + \"/api/v0002/bulk/devices\";\n\n\n// Set Authorization in message headers from VCAP informtion\nvar auth = 'Basic ' + new Buffer(global.get('iotfAPIKey') + ':' + global.get('iotfAPIToken')).toString('base64');\nvar headers = {};\nheaders[\"Authorization\"] = auth;\nmsg.headers = headers;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 340,
+        "y": 679,
+        "wires": [
+            [
+                "9bf30242.bed64"
+            ]
+        ]
+    },
+    {
+        "id": "9bf30242.bed64",
+        "type": "http request",
+        "z": "d6f13981.f9b9a",
+        "name": "MakeRequest",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 520,
+        "y": 679,
+        "wires": [
+            [
+                "84c86a30.397b88"
+            ]
+        ]
+    },
+    {
+        "id": "84c86a30.397b88",
+        "type": "json",
+        "z": "d6f13981.f9b9a",
+        "name": "",
+        "pretty": false,
+        "x": 690,
+        "y": 679,
+        "wires": [
+            [
+                "c57335b9.7f8c8"
+            ]
+        ]
+    },
+    {
+        "id": "c57335b9.7f8c8",
+        "type": "function",
+        "z": "d6f13981.f9b9a",
+        "name": "SetContext",
+        "func": "\nvar results = msg.payload.results;\nvar j;\nvar payload = [];\nfor (j=0;j<results.length;j++) {\n    var tdata = {};\n    tdata.deviceId = results[j].deviceId;\n    tdata.typeId = results[j].typeId;\n    payload.push(tdata);\n}\n\n// Store device data in global context \nglobal.set('devices', payload);\n\nmsg.payload =  payload;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 830,
+        "y": 679,
+        "wires": [
+            [
+                "9af1bbd1.30f188"
+            ]
+        ]
+    },
+    {
+        "id": "9af1bbd1.30f188",
+        "type": "debug",
+        "z": "d6f13981.f9b9a",
+        "name": "dbg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 990,
+        "y": 679,
+        "wires": []
+    },
+    {
+        "id": "b3bbc46d.fda868",
+        "type": "delay",
+        "z": "d6f13981.f9b9a",
+        "name": "wait",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 310,
+        "y": 620,
+        "wires": [
+            [
+                "2fb0dfb9.86c66"
+            ]
+        ]
+    },
+    {
+        "id": "3ef758a5.df37b8",
+        "type": "http in",
+        "z": "d6f13981.f9b9a",
+        "name": "Process Registration",
+        "url": "/registerMe",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 65,
+        "wires": [
+            [
+                "117faca1.4fb2b3"
+            ]
+        ]
+    },
+    {
+        "id": "69539e00.a0c33",
+        "type": "template",
+        "z": "d6f13981.f9b9a",
+        "name": "Response",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "# Device configuration from provisioing service\norg={{ data.payload.OrgId }}\ntype={{ data.payload.typeId }}\nid={{ data.payload.deviceId }}\nuseClientCertificates=1\nrootCACertPath=/opt/iotnxpimxclient/certs/IoTFoundation.pem\nuseNXPEngine=1\nuseCertsFromSE=1\n",
+        "x": 582,
+        "y": 41,
+        "wires": [
+            [
+                "7ba6b570.9409c4"
+            ]
+        ]
+    },
+    {
+        "id": "7ba6b570.9409c4",
+        "type": "http response",
+        "z": "d6f13981.f9b9a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 730,
+        "y": 41,
+        "wires": []
+    },
+    {
+        "id": "117faca1.4fb2b3",
+        "type": "function",
+        "z": "d6f13981.f9b9a",
+        "name": "SetContext",
+        "func": "context.data = context.data || new Object();\nif ( msg.payload === undefined ) {\n    context.data.payload = {};\n    context.data.total = 0;\n    context.data.payload.typeId = \"\";\n    context.data.payload.deviceId = \"\";\n    context.data.payload.lockStatus = \"unknown\";\n    context.data.payload.registered = \"false\";\n    msg.data = context.data;\n} else {\n    if ( msg.payload.deviceId === undefined ) {\n        context.data.total = 0;\n    } else {\n        context.data.total = 1;\n    }\n\n    context.data.payload = msg.payload;\n    context.data.payload.OrgId = global.get('iotfOrg');\n    context.data.payload.lockStatus = \"unknwon\";\n    context.data.payload.registered = \"false\";\n    msg.data = context.data;\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 417,
+        "y": 65,
+        "wires": [
+            [
+                "69539e00.a0c33",
+                "3c3bd767.1a142"
+            ]
+        ]
+    },
+    {
+        "id": "1d8af23b.dc7156",
+        "type": "debug",
+        "z": "d6f13981.f9b9a",
+        "name": "dbg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1090,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7bc2e673.015048",
+        "type": "ibmiot in",
+        "z": "4c26cae5.e5121c",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "logicalInterface": "",
+        "ruleId": "",
+        "deviceId": "",
+        "applicationId": "",
+        "deviceType": "+",
+        "eventType": "+",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": false,
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allLogicalInterfaces": "",
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": false,
+        "qos": 0,
+        "x": 90,
+        "y": 100,
+        "wires": [
+            [
+                "cad03c1d.e7ec",
+                "d617ed0c.a9a93"
+            ]
+        ]
+    },
+    {
+        "id": "3b7574d0.90c7c4",
+        "type": "ibmiot out",
+        "z": "4c26cae5.e5121c",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "70028193003559990877",
+        "deviceType": "NXP-A71CH-D",
+        "eventCommandType": "closeDoor",
+        "format": "json",
+        "data": "{\"newState\":\"closeDoor\"}",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 600,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "6a19ff3d.b050e8",
+        "type": "function",
+        "z": "4c26cae5.e5121c",
+        "name": "Set Device Command",
+        "func": "var deviceId = msg.payload.id;\nvar typeId = msg.payload.type;\n\nvar retmsg = {};\n\nvar payload = {};\npayload.newState = \"openDoor\";\n\nretmsg.deviceId = deviceId;\nretmsg.typeId = typeId;\nretmsg.eventOrCommandType = \"openDoor\";\nretmsg.payload = payload;\n\nreturn retmsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 340,
+        "y": 241,
+        "wires": [
+            [
+                "3b7574d0.90c7c4",
+                "21d09ebf.ea484a"
+            ]
+        ]
+    },
+    {
+        "id": "971a7f23.c3ac7",
+        "type": "http in",
+        "z": "4c26cae5.e5121c",
+        "name": "UnLock",
+        "url": "/unlock",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 241,
+        "wires": [
+            [
+                "6a19ff3d.b050e8"
+            ]
+        ]
+    },
+    {
+        "id": "8ce62414.3775a",
+        "type": "function",
+        "z": "4c26cae5.e5121c",
+        "name": "Set Device Command",
+        "func": "var deviceId = msg.payload.id;\nvar typeId = msg.payload.type;\n\nvar retmsg = {};\n\nvar payload = {};\npayload.newState = \"closeDoor\";\n\nretmsg.deviceId = deviceId;\nretmsg.typeId = typeId;\nretmsg.eventOrCommandType = \"closeDoor\";\nretmsg.payload = payload;\n\nreturn retmsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 340,
+        "y": 281,
+        "wires": [
+            [
+                "3b7574d0.90c7c4",
+                "21d09ebf.ea484a"
+            ]
+        ]
+    },
+    {
+        "id": "5ee3941c.097bbc",
+        "type": "http in",
+        "z": "4c26cae5.e5121c",
+        "name": "Lock",
+        "url": "/lock",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 281,
+        "wires": [
+            [
+                "8ce62414.3775a"
+            ]
+        ]
+    },
+    {
+        "id": "6c6bda74.0d61cc",
+        "type": "inject",
+        "z": "daad7862.cf0058",
+        "name": "Initialize",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "x": 146,
+        "y": 100,
+        "wires": [
+            [
+                "691626c8.206128"
+            ]
+        ]
+    },
+    {
+        "id": "691626c8.206128",
+        "type": "function",
+        "z": "daad7862.cf0058",
+        "name": "SetGlobal",
+        "func": "global.set('nxplogourl', '//www.nxp.com/resources/images/nxp-logo.svg');\nglobal.set('devicetype', 'NXP-A71CH-D');\nglobal.set('devicetoken', 'testPassw0rd');\nglobal.set('deviceid', 'Specify UID or wait for device request');\nglobal.set('gatewaytype', 'NXP-A71CH-G');\n\n\n// Get application name from VCAP_APPLICATION env\nvar appdata = context.global.VCAP_APPLICATION;\nvar appuri = appdata.uris[0];\n\n// Get iotf-service from VCAP_SERVICES and parse iotf-service apiKey and apiToken\nvar services = context.global.VCAP_SERVICES;\nvar iotfservice = services['iotf-service'];\nvar iotobject = iotfservice[0];\nvar iotfOrg = iotobject.credentials.org;\nvar iotfHost = iotobject.credentials.http_host;\nvar iotfAPIKey = iotobject.credentials.apiKey;\nvar iotfAPIToken = iotobject.credentials.apiToken;\n\nvar cloudantservice = services['cloudantNoSQLDB'];\nvar cloudantobj = cloudantservice[0];\nvar cloudantuser = cloudantobj.credentials.username;\nvar cloudantpasswd = cloudantobj.credentials.password;\nvar cloudanturl = cloudantobj.credentials.url;\n\nglobal.set('iotfOrg', iotfOrg);\nglobal.set('iotfHost', iotfHost);\nglobal.set('iotfAPIKey', iotfAPIKey);\nglobal.set('iotfAPIToken', iotfAPIToken);\nglobal.set('dbuser', cloudantuser);\nglobal.set('dbpass', cloudantpasswd);\nglobal.set('dburl', cloudanturl);\nglobal.set('appuri', appuri);\n\n\n// Initialize global device data array\nvar devIds = [];\nvar devTypes = [];\nvar devStates = [];\nvar devRegs = [];\nvar devCount = 0;\nglobal.set('devIds', devIds);\nglobal.set('devTypes', devTypes);\nglobal.set('devStates', devStates);\nglobal.set('devRegs', devRegs);\nglobal.set('devCount', devCount);\n\nvar msg = {};\nmsg[\"iotfOrg\"] = iotfOrg;\nmsg[\"iotfHost\"] = iotfHost;\nmsg[\"iotfKey\"] = iotfAPIKey;\nmsg[\"iotfToken\"] = iotfAPIToken;\nmsg[\"dbuser\"] = cloudantuser;\nmsg[\"dbpass\"] = cloudantpasswd;\nmsg[\"dburl\"] = cloudanturl;\nmsg[\"appuri\"] = appuri;\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "92577ae4.3ed4e8"
+            ]
+        ]
+    },
+    {
+        "id": "92577ae4.3ed4e8",
+        "type": "debug",
+        "z": "daad7862.cf0058",
+        "name": "dbg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 490,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "64f09fec.28a08",
+        "type": "http in",
+        "z": "4c26cae5.e5121c",
+        "name": "Manual",
+        "url": "/manual",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 200,
+        "wires": [
+            [
+                "d923ada9.cc26a"
+            ]
+        ]
+    },
+    {
+        "id": "d923ada9.cc26a",
+        "type": "function",
+        "z": "4c26cae5.e5121c",
+        "name": "Set Device Command",
+        "func": "var deviceId = msg.payload.id;\nvar typeId = msg.payload.type;\n\nvar msg = {};\n\nvar payload = {};\npayload.newState = \"disconnect\";\n\nmsg.deviceId = deviceId;\nmsg.typeId = typeId;\nmsg.eventOrCommandType = \"disconnect\";\nmsg.payload = payload;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 340,
+        "y": 200,
+        "wires": [
+            [
+                "3b7574d0.90c7c4"
+            ]
+        ]
+    },
+    {
+        "id": "4253037d.d63844",
+        "type": "function",
+        "z": "d6f13981.f9b9a",
+        "name": "SetContext",
+        "func": "var results = msg.payload;\n\nvar devIds = global.get(\"devIds\");\nvar devStates = global.get(\"devStates\");\nvar devTypes = global.get(\"devTypes\");\nvar devRegs = global.get(\"devRegs\");\nvar devCount = global.get(\"devCount\");\n\nvar j;\nvar payload = [];\nif ( devCount === 0 ) {\n    var tdata = {};\n    tdata.deviceId = \"\";\n    tdata.typeId = \"\";\n    tdata.lockStatus = \"unknown\";\n    tdata.registered = \"false\";\n    payload.push(tdata);\n} else {\n    for (j=0;j<devCount;j++) {\n        if ( devRegs[j] === false ) {\n            var tdata = {};\n            tdata.deviceId = devIds[j];\n            tdata.typeId = devTypes[j];\n            tdata.lockStatus = devStates[j];\n            tdata.registered = \"false\";\n        }\n    }\n    payload.push(tdata);\n}\n\nmsg.payload =  payload;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 350,
+        "y": 260,
+        "wires": [
+            [
+                "f3b03a69.fba248",
+                "d5543944.66ab8"
+            ]
+        ]
+    },
+    {
+        "id": "f3b03a69.fba248",
+        "type": "template",
+        "z": "d6f13981.f9b9a",
+        "name": "css",
+        "field": "payload.style",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "\n#stats {\n    font-family: \"Trebuchet MS\", Arial, Helvetica, sans-serif;\n    border-collapse: collapse;\n    width: 50%;\n}\n\n#stats td{\n    border: 1px solid #ddd;\n    padding: 3px;\n    vertical-align: top;\n}\n\n#stats tr:nth-child(even){background-color: #00ffff;}\n\n#stats tr:hover {background-color: #ddd;}\n\n#stats th {\n    padding-top: 5px;\n    padding-bottom: 5px;\n    text-align: left;\n    background-color: #00bfff;\n    color: white;\n}\n\n#stats input {\n    padding-top: 2px;\n    padding-bottom: 2px;\n    text-align: left;\n    font-size: 12px;\n    height: 20px;\n}\n\n#stats select {\n    padding-top: 1px;\n    padding-bottom: 1px;\n    text-align: left;\n    font-size: 12px;\n    height: 20px;\n}\n\n",
+        "x": 530,
+        "y": 260,
+        "wires": [
+            [
+                "b7e6ae9c.122c98"
+            ]
+        ]
+    },
+    {
+        "id": "bab8c628.bda98",
+        "type": "inject",
+        "z": "d6f13981.f9b9a",
+        "name": "test",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 210,
+        "y": 440,
+        "wires": [
+            [
+                "4670ffe1.174ef"
+            ]
+        ]
+    },
+    {
+        "id": "4670ffe1.174ef",
+        "type": "function",
+        "z": "d6f13981.f9b9a",
+        "name": "SetTestData",
+        "func": "var payload = {};\npayload.deviceId = \"ABCD12345\";\npayload.typeId = \"NXP-A71CH-D\";\nmsg.payload = payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 394,
+        "y": 441,
+        "wires": [
+            [
+                "2a9777ff.1f5f9"
+            ]
+        ]
+    },
+    {
+        "id": "e8487edd.318278",
+        "type": "function",
+        "z": "d6f13981.f9b9a",
+        "name": "SetTestData",
+        "func": "var payload = {};\npayload.deviceId = \"ABCD12345\";\npayload.typeId = \"NXP-A71CH-D\";\nmsg.payload = payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 250,
+        "y": 100,
+        "wires": [
+            [
+                "117faca1.4fb2b3"
+            ]
+        ]
+    },
+    {
+        "id": "63609e6f.14ee1",
+        "type": "inject",
+        "z": "d6f13981.f9b9a",
+        "name": "TD",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 114,
+        "y": 101,
+        "wires": [
+            [
+                "e8487edd.318278"
+            ]
+        ]
+    },
+    {
+        "id": "21d09ebf.ea484a",
+        "type": "debug",
+        "z": "4c26cae5.e5121c",
+        "name": "dbg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 590,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "cad03c1d.e7ec",
+        "type": "function",
+        "z": "4c26cae5.e5121c",
+        "name": "SetGlobalData",
+        "func": "var id = msg.payload.deviceId;\nvar type = msg.payload.typeId;\nvar state = msg.payload.lockStatus;\n\nvar devIds = global.get(\"devIds\");\nvar devTypes = global.get(\"devTypes\");\nvar devStates = global.get(\"devStates\");\nvar devCount = global.get(\"devCount\");\n\nvar j = 0;\nvar found = 0;\nif ( devCount > 0 ) {\n    for ( j=0; j < devCount; j++ ) {\n        var did = devIds[j];\n        if ( id == did ) {\n            devStates[j] = state;\n            devTypes[j] = type;\n            found = 1;\n        }\n    }\n    if ( found === 0 ) {\n        devCount += 1;\n        global.set(\"devCount\", devCount);\n        devStates[devCount] = state;\n        devTypes[devCount] = type;\n        devIds[devCount] = id;\n    }\n} else {\n    devStates[devCount] = state;\n    devTypes[devCount] = type;\n    devIds[devCount] = id;\n    devCount = 1;\n}\n\nglobal.set('devIds', devIds);\nglobal.set('devTypes', devTypes);\nglobal.set('devStates', devStates);\nglobal.set('devCount', devCount);\n\nvar retmsg = {};\nvar payload = {};\npayload.devIds = devIds;\npayload.devTypes = devTypes;\npayload.devStates = devStates;\npayload.devCount = devCount;\nretmsg.payload = payload;\n\nreturn retmsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 100,
+        "wires": [
+            [
+                "f86556a6.ccbf9"
+            ]
+        ]
+    },
+    {
+        "id": "f86556a6.ccbf9",
+        "type": "debug",
+        "z": "4c26cae5.e5121c",
+        "name": "dbg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 590,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "3c3bd767.1a142",
+        "type": "switch",
+        "z": "d6f13981.f9b9a",
+        "name": "",
+        "property": "payload.deviceId",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 570,
+        "y": 80,
+        "wires": [
+            [
+                "8beba3c8.cbdc"
+            ]
+        ]
+    },
+    {
+        "id": "8beba3c8.cbdc",
+        "type": "function",
+        "z": "d6f13981.f9b9a",
+        "name": "SetGlobalArray",
+        "func": "var id = msg.payload.deviceId;\nvar type = msg.payload.typeId;\n\nvar devIds = global.get(\"devIds\");\nvar devStates = global.get(\"devStates\");\nvar devTypes = global.get(\"devTypes\");\nvar devRegs = global.get(\"devRegs\");\nvar devCount = global.get(\"devCount\");\n\nvar j = 0;\nvar found = 0;\nif ( devCount > 0 ) {\n    for ( j=0; j < devCount; j++ ) {\n        var did = devIds[j];\n        if ( id == did ) {\n            devStates[j] = \"unknown\";\n            devTypes[j] = type;\n            devRegs[j] = false;\n            found = 1;\n        }\n    }\n    if ( found === 0 ) {\n        devIds[devCount] = id;\n        devTypes[devCount] = type;\n        devStates[devCount] = \"unknown\";\n        devRegs[j] = false;\n        devCount += 1;\n    }\n} else {\n    devIds[devCount] = id;\n    devTypes[devCount] = type;\n    devStates[devCount] = \"unknown\";\n    devRegs[j] = false;\n    devCount = 1;\n}\n\nglobal.set('devIds', devIds);\nglobal.set('devTypes', devTypes);\nglobal.set('devStates', devStates);\nglobal.set('devRegs', devRegs);\nglobal.set('devCount', devCount);\n\n\nvar msg = {};\nmsg.method = \"get\";\nmsg.url = \"https://\" + global.get('iotfHost')  + \"/api/v0002/bulk/devices\";\n\n// Set Authorization in message headers from VCAP informtion\nvar auth = 'Basic ' + new Buffer(global.get('iotfAPIKey') + ':' + global.get('iotfAPIToken')).toString('base64');\nvar headers = {};\nheaders[\"Authorization\"] = auth;\nmsg.headers = headers;\n\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 760,
+        "y": 80,
+        "wires": [
+            [
+                "423fab65.926164"
+            ]
+        ]
+    },
+    {
+        "id": "d5543944.66ab8",
+        "type": "debug",
+        "z": "d6f13981.f9b9a",
+        "name": "dbg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 530,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "c13b7868.489e3",
+        "type": "http in",
+        "z": "4c26cae5.e5121c",
+        "name": "Door Lock Status",
+        "url": "/lockStatus",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 500,
+        "wires": [
+            [
+                "da41181.9a500e8",
+                "6de24b06.482bdc",
+                "97a00308.a4e24"
+            ]
+        ]
+    },
+    {
+        "id": "443a6864.592f68",
+        "type": "template",
+        "z": "4c26cae5.e5121c",
+        "name": "Response",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n<head>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> \n    <meta http-equiv=\"refresh\" content=\"10\">\n    <style type=\"text/css\"> {{{payload.style}}} </style>\n</head>\n\n<script>\n\nfunction lockState() {\n    document.getElementById(\"blue\").style.display=\"none\";\n    document.getElementById(\"green\").style.display=\"none\";\n    document.getElementById(\"red\").style.display=\"block\";\n    \n    var xhr = new XMLHttpRequest();\n    xhr.onreadystatechange = function () {\n        return;\n    }\n    xhr.open('GET', \"/lock\", true);\n    xhr.send();\n}\n\nfunction unlockState() {\n    document.getElementById(\"blue\").style.display=\"none\";\n    document.getElementById(\"green\").style.display=\"block\";\n    document.getElementById(\"red\").style.display=\"none\";\n    \n    var xhr = new XMLHttpRequest();\n    xhr.onreadystatechange = function () {\n        return;\n    }\n    xhr.open('GET', \"/unlock\", true);\n    xhr.send();\n}\n\nfunction unknownState() {\n    document.getElementById(\"blue\").style.display=\"block\";\n    document.getElementById(\"green\").style.display=\"none\";\n    document.getElementById(\"red\").style.display=\"none\";\n}\n\nfunction closeWindow()\n{\n    window.close();\n}\n\n</script>\n\n<body onload=\"{{{ payload.funcName }}}\">\n\n<img src=\"../../images/ibmpos_blue_thumb.jpg\" style=\"width:80px;height:40px;vertical-align:baseline;\" /> &nbsp; &nbsp; <font size=+2>Watson IoT Platform</font><br>\n<img src=\"{{ global.nxplogourl }}\" style=\"width:80px;height:20px;vertical-align:middle;\" /> &nbsp; &nbsp; <font size=+1> NXP A71CH Ready for Watson IoT - Door Lock </font> </p>\n\n<div id=\"blue\" class=\"img-none\">\n  <div class=\"status-blue\"></div>\n</div>\n\n<div id=\"red\" class=\"img-none\">\n  <div class=\"status-red\"></div>\n</div>\n\n<div id=\"green\" class=\"img-block\">\n  <div class=\"status-green\"></div>\n</div>\n\n\n\n<div class=\"footer\">\n<button onclick=\"lockState();\">Lock Door</button>\n<button onClick=\"unlockState();\">Unlock Door</button> \n<button onClick=\"closeWindow();\">Close APP</button></p>\n<hr style=\"border-top: 3px double #8c8b8b; max-width: 600px; margin: 0px;\"> <br>\n<font size=\"-1\"></font>This page shows the current status of Door ID: {{{payload.deviceId}}}) <br>\n<a class=\"legend-blue\"> &nbsp; &nbsp; &nbsp; </a> Not Connected &nbsp; &nbsp; &nbsp;\n<a class=\"legend-red\"> &nbsp; &nbsp; &nbsp; </a> Connected and Locked &nbsp; &nbsp; &nbsp;\n<a class=\"legend-green\"> &nbsp; &nbsp; &nbsp; </a> Connected and UnLocked </font> <br>\n\n<img src=\"{{{ payload.qrurl }}}\" alt=\"Download Secured Door Lock APP\" />\n\n</div>\n\n</body>\n</html>",
+        "x": 800,
+        "y": 500,
+        "wires": [
+            [
+                "c771e8ba.920a38"
+            ]
+        ]
+    },
+    {
+        "id": "c771e8ba.920a38",
+        "type": "http response",
+        "z": "4c26cae5.e5121c",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 970,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "8627c30b.bea57",
+        "type": "function",
+        "z": "4c26cae5.e5121c",
+        "name": "SetContext",
+        "func": "\nvar state = \"unknown\";\nif ( msg.payload.connectionStatus === undefined ) {\n    state = \"unknown\";\n} else if ( msg.payload.connectionStatus == \"disconnected\" ) {\n    state = \"unknown\";\n} else if ( msg.payload.connectionStatus == \"connected\" ) {\n    state = \"Closed\";\n}\n\nvar id = flow.get(\"deviceId\");\nvar type = flow.get(\"typeId\");\n\nvar devIds = global.get(\"devIds\");\nvar devTypes = global.get(\"devTypes\");\nvar devStates = global.get(\"devStates\");\nvar devRegs = global.get(\"devRegs\");\nvar devCount = global.get(\"devCount\");\n\nvar j = 0;\nvar found = 0;\nif ( devCount > 0 ) {\n    for ( j=0; j < devCount; j++ ) {\n        var did = devIds[j];\n        var tid = devTypes[j];\n        if ( id == did ) {\n            if ( type === tid ) {\n                devStates[j] = state;\n                found = 1;\n                break;\n            }\n        }\n    }\n    if ( found === 0 ) {\n        devStates[devCount] = state;\n        devTypes[devCount] = type;\n        devIds[devCount] = id;\n        devRegs[devCount] = false;\n        devCount += 1;\n    }\n} else {\n    devStates[devCount] = state;\n    devTypes[devCount] = type;\n    devIds[devCount] = id;\n    devRegs[devCount] = false;\n    devCount += 1;\n}\n\nglobal.set('devIds', devIds);\nglobal.set('devTypes', devTypes);\nglobal.set('devStates', devStates);\nglobal.set('devRegs', devRegs);\nglobal.set('devCount', devCount);\n\nvar msg = {};\nvar payload = {};\npayload.newState = \"sendStatus\";\n\nmsg.deviceId = id;\nmsg.typeId = type;\nmsg.eventOrCommandType = \"sendStatus\";\nmsg.payload = payload;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 670,
+        "y": 560,
+        "wires": [
+            [
+                "888eb51e.e9c4c"
+            ]
+        ]
+    },
+    {
+        "id": "515f8d75.1ffdf4",
+        "type": "template",
+        "z": "4c26cae5.e5121c",
+        "name": "css",
+        "field": "payload.style",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "@-webkit-keyframes blinkRed {\n    from { background-color: #F00; }\n    50% { background-color: #A00; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;}\n    to { background-color: #F00; }\n}\n@-moz-keyframes blinkRed {\n    from { background-color: #F00; }\n    50% { background-color: #A00; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;}\n    to { background-color: #F00; }\n}\n@-ms-keyframes blinkRed {\n    from { background-color: #F00; }\n    50% { background-color: #A00; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;}\n    to { background-color: #F00; }\n}\n@-o-keyframes blinkRed {\n    from { background-color: #F00; }\n    50% { background-color: #A00; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;}\n    to { background-color: #F00; }\n}\n@keyframes blinkRed {\n    from { background-color: #F00; }\n    50% { background-color: #A00; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 0;}\n    to { background-color: #F00; }\n}\n\nEX\n#fcf3cf\nRGB\n252, 243, 207\nHSL\n48, 89%, 90% \n\n@-webkit-keyframes blinkYellow {\n    from { background-color: #FCF3CF; }\n    50% { background-color: #AA0; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FCF3CF 0 2px 0; }\n    to { background-color: #FCF3CF; }\n}\n@-moz-keyframes blinkYellow {\n    from { background-color: #FCF3CF; }\n    50% { background-color: #AA0; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FCF3CF 0 2px 0; }\n    to { background-color: #FCF3CF; }\n}\n@-ms-keyframes blinkYellow {\n    from { background-color: #FCF3CF; }\n    50% { background-color: #AA0; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FCF3CF 0 2px 0; }\n    to { background-color: #FCF3CF; }\n}\n@-o-keyframes blinkYellow {\n    from { background-color: #FCF3CF; }\n    50% { background-color: #AA0; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FCF3CF 0 2px 0; }\n    to { background-color: #FF0; }\n}\n@keyframes blinkYellow {\n    from { background-color: #FCF3CF; }\n    50% { background-color: #AA0; box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FCF3CF 0 2px 0; }\n    to { background-color: #FCF3CF; }\n}\n\n.status-blue {\n  position: absolute;\n  top: 165px;\n  left: 85px;\n  z-index: 3;\n  margin: 0;\n  width: 24px;\n  height: 24px;\n  background-color: #24E0FF;\n  border-radius: 50%;\n  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, #3F8CFF 0 2px 14px;\n}\n\n.status-green {\n  position: absolute;\n  top: 165px;\n  left: 85px;\n  z-index: 3;\n  margin: 0;\n  width: 24px;\n  height: 24px;\n  background-color: #ABFF00;\n  border-radius: 50%;\n  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #89FF00 0 2px 12px;\n}\n\n.status-red {\n  position: absolute;\n  top: 165px;\n  left: 84px;\n  z-index: 3;\n  margin: 0;\n  width: 24px;\n  height: 24px;\n  background-color: #F00;\n  border-radius: 50%;\n  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 12px;\n  -webkit-animation: blinkRed 0.5s infinite;\n  -moz-animation: blinkRed 0.5s infinite;\n  -ms-animation: blinkRed 0.5s infinite;\n  -o-animation: blinkRed 0.5s infinite;\n  animation: blinkRed 0.5s infinite;\n}\n\n.status-yellow {\n  position: absolute;\n  top: 165px;\n  left: 85px;\n  z-index: 3;\n  margin: 0;\n  width: 24px;\n  height: 24px;\n  background-color: #FCF3CF;\n  border-radius: 50%;\n  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FCF3CF 0 2px 12px;\n  -webkit-animation: blinkYellow 1s infinite;\n  -moz-animation: blinkYellow 1s infinite;\n  -ms-animation: blinkYellow 1s infinite;\n  -o-animation: blinkYellow 1s infinite;\n  animation: blinkYellow 1s infinite;\n}\n\n.legend-blue {\n  margin: left;\n  width: 24px;\n  height: 24px;\n  background-color: #24E0FF;\n  border-radius: 50%;\n  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, #3F8CFF 0 2px 14px;\n}\n\n.legend-green {\n  margin: left;\n  width: 24px;\n  height: 24px;\n  background-color: #ABFF00;\n  border-radius: 50%;\n  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #89FF00 0 2px 12px;\n}\n\n.legend-red {\n  margin: left;\n  width: 24px;\n  height: 24px;\n  background-color: #FFFF00;\n  border-radius: 50%;\n  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 12px;\n  -webkit-animation: blinkRed 0.5s infinite;\n  -moz-animation: blinkRed 0.5s infinite;\n  -ms-animation: blinkRed 0.5s infinite;\n  -o-animation: blinkRed 0.5s infinite;\n  animation: blinkRed 0.5s infinite;\n}\n\n.legend-yellow {\n  margin: left;\n  width: 24px;\n  height: 24px;\n  background-color: #FCF3CF;\n  border-radius: 50%;\n  box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #FCF3CF 0 2px 12px;\n  -webkit-animation: blinkYellow 1s infinite;\n  -moz-animation: blinkYellow 1s infinite;\n  -ms-animation: blinkYellow 1s infinite;\n  -o-animation: blinkYellow 1s infinite;\n  animation: blinkYellow 1s infinite;\n}\n\n.img-block {\n  position: absolute;\n  height: 430px;\n  width: 400px;\n  top: 100px;\n  left: 20px;\n  display: block;\n  background: url(images/dlock.jpg);\n}\n\n.img-none {\n  position: absolute;\n  height: 430px;\n  width: 400px;\n  top: 100px;\n  left: 20px;\n  display: none;\n  background: url(images/dlock.jpg);\n}\n\n.footer {\n  position: absolute;\n  top: 530px;\n  left: 20px;\n}\n",
+        "x": 650,
+        "y": 500,
+        "wires": [
+            [
+                "443a6864.592f68"
+            ]
+        ]
+    },
+    {
+        "id": "6de24b06.482bdc",
+        "type": "delay",
+        "z": "4c26cae5.e5121c",
+        "name": "wait",
+        "pauseType": "delay",
+        "timeout": "6",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 310,
+        "y": 500,
+        "wires": [
+            [
+                "c9192b9f.20cb38"
+            ]
+        ]
+    },
+    {
+        "id": "c9192b9f.20cb38",
+        "type": "function",
+        "z": "4c26cae5.e5121c",
+        "name": "SetContext",
+        "func": "var deviceId = msg.payload.deviceId;\nvar typeId = msg.payload.typeId;\nvar state = \"unknown\";\n\nvar devIds = global.get(\"devIds\");\nvar devTypes = global.get(\"devTypes\");\nvar devStates = global.get(\"devStates\");\nvar devCount = global.get(\"devCount\");\n\nvar j = 0;\nvar found = 0;\nif ( devCount > 0 ) {\n    for ( j=0; j < devCount; j++ ) {\n        var did = devIds[j];\n        if ( deviceId == did ) {\n            state = devStates[j];\n            found = 1;\n            break;\n        }\n    }\n}\n\nvar payload = msg.payload;\n\npayload.found = found;\npayload.state = state;\n\npayload.funcName = \"unknownState()\";\nif ( state == \"Closed\" ) {\n    payload.funcName = \"lockState()\";\n} else if ( state == \"Opened\" ) {\n    payload.funcName = \"unlockState()\";\n}\n\nvar qrurl = \"https://chart.googleapis.com/chart?chs=100x100&amp;cht=qr&amp;chl=https://\" +\n    global.get('appuri') + \"/lockStatus?deviceId=\" + deviceId + \n    \"&amp;typeId=\" + typeId + \"&amp;choe=UTF-8\";\n\npayload.qrurl = qrurl;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 490,
+        "y": 500,
+        "wires": [
+            [
+                "515f8d75.1ffdf4",
+                "ea6d9c58.d61418"
+            ]
+        ]
+    },
+    {
+        "id": "ea6d9c58.d61418",
+        "type": "debug",
+        "z": "4c26cae5.e5121c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 650,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "8436cdb.6f629b",
+        "type": "http request",
+        "z": "4c26cae5.e5121c",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 490,
+        "y": 560,
+        "wires": [
+            [
+                "8627c30b.bea57",
+                "1606e814.7ca56"
+            ]
+        ]
+    },
+    {
+        "id": "da41181.9a500e8",
+        "type": "function",
+        "z": "4c26cae5.e5121c",
+        "name": "DeviceTypeData",
+        "func": "var deviceId = msg.payload.deviceId;\nvar typeId = msg.payload.typeId;\n\nflow.set(\"devieId\", deviceId);\nflow.set(\"typeId\", typeId);\n\nvar orgid = global.get(\"iotfOrg\");\nvar clientId = \"d:\" + orgid + \":\" + typeId + \":\" + deviceId;\n\n\nmsg.method = \"get\";\nmsg.payload = {};\n\nmsg.url = \"https://\" + global.get('iotfHost') + \"/api/v0002/clientconnectionstates/\" + clientId;\n\n// Set Authorization in message headers from VCAP informtion\nvar auth = 'Basic ' + new Buffer(global.get('iotfAPIKey') + ':' + global.get('iotfAPIToken')).toString('base64');\nvar headers = {};\nheaders[\"Authorization\"] = auth;\nmsg.headers = headers;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 320,
+        "y": 560,
+        "wires": [
+            [
+                "8436cdb.6f629b"
+            ]
+        ]
+    },
+    {
+        "id": "9deeac97.35069",
+        "type": "function",
+        "z": "daad7862.cf0058",
+        "name": "ConfigLastEventCache",
+        "func": "var msg = {};\nvar payload = {};\n\n\n// payload[\"enabled\"] = true;\n// payload[\"ttlDays\"] = 7;\n\npayload.enabled = true;\npayload.ttlDays = 7;\n\nmsg.method = \"PUT\";\nmsg.payload = payload;\n\nmsg.url = \"https://\" + global.get('iotfHost') + \"/api/v0002/config/lec\";\n\n// Set Authorization in message headers from VCAP informtion\nvar auth = 'Basic ' + new Buffer(global.get('iotfAPIKey') + ':' + global.get('iotfAPIToken')).toString('base64');\nvar headers = {};\nheaders[\"Authorization\"] = auth;\nmsg.headers = headers;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 625,
+        "y": 220,
+        "wires": [
+            [
+                "7efcbb83.2b8d4c"
+            ]
+        ]
+    },
+    {
+        "id": "7efcbb83.2b8d4c",
+        "type": "http request",
+        "z": "daad7862.cf0058",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 844,
+        "y": 220,
+        "wires": [
+            [
+                "5d099edf.408ff"
+            ]
+        ]
+    },
+    {
+        "id": "5d099edf.408ff",
+        "type": "debug",
+        "z": "daad7862.cf0058",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 1025,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "10d78687.2f4ca1",
+        "type": "http request",
+        "z": "daad7862.cf0058",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 844,
+        "y": 280,
+        "wires": [
+            [
+                "b5d9e64d.90e33"
+            ]
+        ]
+    },
+    {
+        "id": "d691236.fdae5e",
+        "type": "function",
+        "z": "daad7862.cf0058",
+        "name": "ConfigDeviceType",
+        "func": "var msg = {};\nvar data = {};\nvar deviceInfo = {};\nvar metadata = {};\nvar deviceType = global.get('devicetype');\n\ndata[\"id\"] = deviceType;\ndata[\"description\"] = \"Device with NXP Security Chip\";\ndata[\"classId\"] = \"Device\";\ndata[\"deviceInfo\"] = deviceInfo;\ndata[\"metadata\"] = metadata;\n\n\nmsg.method = \"post\";\nmsg.payload = data;\n\nmsg.url = \"https://\" + global.get('iotfHost') + \"/api/v0002/device/types\";\n\n// Set Authorization in message headers from VCAP informtion\nvar auth = 'Basic ' + new Buffer(global.get('iotfAPIKey') + ':' + global.get('iotfAPIToken')).toString('base64');\nvar headers = {};\nheaders[\"Authorization\"] = auth;\nmsg.headers = headers;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 605,
+        "y": 280,
+        "wires": [
+            [
+                "10d78687.2f4ca1"
+            ]
+        ]
+    },
+    {
+        "id": "b5d9e64d.90e33",
+        "type": "debug",
+        "z": "daad7862.cf0058",
+        "name": "dbg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1025,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "201fcd9c.633e12",
+        "type": "function",
+        "z": "daad7862.cf0058",
+        "name": "ConfigGatewayType",
+        "func": "var msg = {};\nvar data = {};\nvar deviceInfo = {};\nvar metadata = {};\nvar deviceType = global.get('gatewaytype');\n\ndata[\"id\"] = deviceType;\ndata[\"description\"] = \"Device with NXP Security Chip\";\ndata[\"classId\"] = \"Gateway\";\ndata[\"deviceInfo\"] = deviceInfo;\ndata[\"metadata\"] = metadata;\n\n\nmsg.method = \"post\";\nmsg.payload = data;\n\nmsg.url = \"https://\" + global.get('iotfHost') + \"/api/v0002/device/types\";\n\n// Set Authorization in message headers from VCAP informtion\nvar auth = 'Basic ' + new Buffer(global.get('iotfAPIKey') + ':' + global.get('iotfAPIToken')).toString('base64');\nvar headers = {};\nheaders[\"Authorization\"] = auth;\nmsg.headers = headers;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 615,
+        "y": 340,
+        "wires": [
+            [
+                "1e070754.8d0c71"
+            ]
+        ]
+    },
+    {
+        "id": "1e070754.8d0c71",
+        "type": "http request",
+        "z": "daad7862.cf0058",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 844,
+        "y": 340,
+        "wires": [
+            [
+                "3ac24887.097f48"
+            ]
+        ]
+    },
+    {
+        "id": "3ac24887.097f48",
+        "type": "debug",
+        "z": "daad7862.cf0058",
+        "name": "dbg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1025,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d7cdb034.f85bd",
+        "type": "function",
+        "z": "daad7862.cf0058",
+        "name": "updateConnPolicy",
+        "func": "// Get id of default connection policy\nvar results = msg.payload.results;\nvar j = 0;\nvar id = \"\";\nfor ( j=0; j < results.length; j++ ) {\n    var data = results[j];\n    var name = data.name;\n    if ( name == \"DefaultConnectionSecurityPolicy\" ) {\n        id = data.id;\n        break;\n    }\n}\n\n// Set msg to configure Connection Policy\nvar retmsg = {};\nretmsg.method = \"put\";\nretmsg.url = \"https://\" + global.get('iotfHost')  + \"/api/v0002/riskmgmt/policies/\" + id;\n\n// Set Authorization in message headers from VCAP informtion\nvar auth = 'Basic ' + new Buffer(global.get('iotfAPIKey') + ':' + global.get('iotfAPIToken')).toString('base64');\nvar headers = {};\nheaders[\"Authorization\"] = auth;\nheaders['content-type'] = 'application/json';\nretmsg.headers = headers;\n\nretmsg.payload = '{\"conditions\":[{\"conditionType\":\"PROPERTY\",\"property\":\"CONN_IS_SECURE\",\"operator\":\"EQ\",\"valueType\":\"BOOLEAN\",\"value\":true},{\"conditionType\":\"CONJUNCTION\",\"operator\":\"OR\",\"conditions\":[{\"conditionType\":\"PROPERTY\",\"property\":\"CONN_USES_TOKEN\",\"operator\":\"EQ\",\"valueType\":\"BOOLEAN\",\"value\":true},{\"conditionType\":\"PROPERTY\",\"property\":\"CONN_USES_CERTIFICATE\",\"operator\":\"EQ\",\"valueType\":\"BOOLEAN\",\"value\":true}]}],\"target\":\"\",\"policyType\":\"CONNECTION_SECURITY\"}';\n\nreturn retmsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 605,
+        "y": 600,
+        "wires": [
+            [
+                "ff5ccb84.06cb68"
+            ]
+        ]
+    },
+    {
+        "id": "ff5ccb84.06cb68",
+        "type": "http request",
+        "z": "daad7862.cf0058",
+        "name": "http request",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 845,
+        "y": 600,
+        "wires": [
+            [
+                "90edfab.7228508"
+            ]
+        ]
+    },
+    {
+        "id": "90edfab.7228508",
+        "type": "debug",
+        "z": "daad7862.cf0058",
+        "name": "dbg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 1025,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "d02b281e.d8db9",
+        "type": "template",
+        "z": "daad7862.cf0058",
+        "name": "Response",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n<head>\n<script>\nfunction closeWindow()\n{\n    window.close();\n}\n</script>\n</head>\n<body>\n\n<h4>IBM Watson IoT service configuration</h4>\n\nREST APIs are invoked to: </p>\n\n- Add Device Type NXP-A71CH-D <br>\n- Add Device Type NXP-A71CH-G <br>\n- Add NXP CA Certificate <br>\n- Add NXP Intermediate Certificate <br>\n- Update Connection Security to TLS with Client Certificate Authentication <br>\n\n</p>\n\n<form><input type=\"button\" onClick=\"closeWindow()\" value=\"Close\" /></form>\n\n</body>\n</html>",
+        "x": 500,
+        "y": 160,
+        "wires": [
+            [
+                "d5c1233f.3d743"
+            ]
+        ]
+    },
+    {
+        "id": "d5c1233f.3d743",
+        "type": "http response",
+        "z": "daad7862.cf0058",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 637,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f82ba86f.100a7",
+        "type": "function",
+        "z": "daad7862.cf0058",
+        "name": "SetContext",
+        "func": "context.data = context.data || new Object();\nif ( msg.payload === undefined ) {\n    context.data.payload = {};\n    msg.data = context.data;\n} else {\n    context.data.payload = msg.payload;\n    msg.data = context.data;\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "d02b281e.d8db9",
+                "99b00ef9.dad67"
+            ]
+        ]
+    },
+    {
+        "id": "83246c39.03b2f8",
+        "type": "http in",
+        "z": "daad7862.cf0058",
+        "name": "WIoTPConfig",
+        "url": "/wiotpConfig",
+        "method": "post",
+        "upload": true,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 160,
+        "wires": [
+            [
+                "f82ba86f.100a7"
+            ]
+        ]
+    },
+    {
+        "id": "dc8a02eb.0cb938",
+        "type": "function",
+        "z": "daad7862.cf0058",
+        "name": "setNXPCACert",
+        "func": "// Set NXP CA Certificate in payload\n\nvar certificate = \n\"-----BEGIN CERTIFICATE-----\\n\" +\n\"MIIBlDCCATegAwIBAgIBATAMBggqhkjOPQQDAgUAMEYxHjAcBgNVBAsTFU5YUCBQ\\n\" +\n\"bHVnIGFuZCBUcnVzdCBDQTEkMCIGA1UEAxMbTlhQIFNlbWljb25kdWN0b3JzIFJv\\n\" +\n\"b3RDQXZFMCIYDzIwMTgwNTI4MDc0MjI4WhgPMjA0MjA1MjgwNzQyMjhaMEYxHjAc\\n\" +\n\"BgNVBAsTFU5YUCBQbHVnIGFuZCBUcnVzdCBDQTEkMCIGA1UEAxMbTlhQIFNlbWlj\\n\" +\n\"b25kdWN0b3JzIFJvb3RDQXZFMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEgq3C\\n\" +\n\"fcTAEB4mb7aHnrFzZ8v5kqXwNXCmX+dhqvyw5W4AEkash45ZzcuxmhBUI3kInsI9\\n\" +\n\"9LJDXRos4OGYn5h4wKMQMA4wDAYDVR0TBAUwAwEB/zAMBggqhkjOPQQDAgUAA0kA\\n\" +\n\"MEYCIQCwJacSuzVnqVKPl7grdQ2NFKdfZvReiH5z85Cwu5uk3gIhAOFaHUZUeJsw\\n\" +\n\"5Os22I0s1+MODwHmEbvxZYK5WGT+gyik\\n\" +\n\"-----END CERTIFICATE-----\\n\";\n\nvar comments = \"NXP CA Certificate\";\n\n//var certstr = certificate.replace(/(\\r)/g, '');\n\n// Set payload\nvar payload = {};\npayload[\"certificate\"] = certificate;\npayload[\"comments\"] = comments;\n\n// Set returned msg\nvar retmsg = {};\nretmsg.method = \"post\";\nretmsg.url = \"https://\" + global.get('iotfHost')  + \"/api/v0002/authentication/cacertificates\";\n\n// Set Authorization in message headers from VCAP informtion\nvar auth = 'Basic ' + new Buffer(global.get('iotfAPIKey') + ':' + global.get('iotfAPIToken')).toString('base64');\nvar headers = {};\nheaders[\"Authorization\"] = auth;\nheaders['content-type'] = 'application/json';\nretmsg.headers = headers;\n\nretmsg.certlen = certificate.length;\nretmsg.payload = JSON.stringify(payload);\n\nreturn retmsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 595,
+        "y": 400,
+        "wires": [
+            [
+                "d5f67a0b.7d071"
+            ]
+        ]
+    },
+    {
+        "id": "d5f67a0b.7d071",
+        "type": "http request",
+        "z": "daad7862.cf0058",
+        "name": "http request",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 845,
+        "y": 400,
+        "wires": [
+            [
+                "706d9eb0.55643"
+            ]
+        ]
+    },
+    {
+        "id": "706d9eb0.55643",
+        "type": "debug",
+        "z": "daad7862.cf0058",
+        "name": "dbg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 1025,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b38f4a27.a5ff",
+        "type": "function",
+        "z": "daad7862.cf0058",
+        "name": "setNXPInterCert",
+        "func": "// Set NXP Intermediate CA Certificate in payload\n\nvar certificate = \n\"-----BEGIN CERTIFICATE-----\\n\" +\n\"MIIBqDCCAU2gAwIBAgIBAjAMBggqhkjOPQQDAgUAMEYxHjAcBgNVBAsTFU5YUCBQ\\n\" +\n\"bHVnIGFuZCBUcnVzdCBDQTEkMCIGA1UEAxMbTlhQIFNlbWljb25kdWN0b3JzIFJv\\n\" +\n\"b3RDQXZFMCIYDzIwMTgwNTI4MDc0NjI0WhgPMjA0MjA1MjgwNzQ2MjRaMEkxHjAc\\n\" +\n\"BgNVBAsTFU5YUCBQbHVnIGFuZCBUcnVzdCBDQTEnMCUGA1UEAxMeTlhQIFNlbWlj\\n\" +\n\"b25kdWN0b3JzIEludGVyQ0EwMXZFMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE\\n\" +\n\"lcaPcM9MeUQKkgLjcHZfKL6LrcwmKvf7rtv8P+uC9+BBYBloiRI/cUN3Ofheb23n\\n\" +\n\"Md0hrvGuanfC4nF3B2B4KKMjMCEwDwYDVR0TBAgwBgEB/wIBADAOBgNVHQ8BAf8E\\n\" +\n\"BAMCAoQwDAYIKoZIzj0EAwIFAANHADBEAiAX17uVPL1nS0czoccwY1H5bdc7CNv8\\n\" +\n\"lzcSJOz/wzhqfQIgGpXrB9+sY8lAGii3Wunun4NL96EfkQAQQ4DbddcEQLE=\\n\" +\n\"-----END CERTIFICATE-----\\n\";\n\nvar comments = \"NXP Intermediate CA Certificate\";\n\n//var certstr = certificate.replace(/(\\r)/g, '');\n\n// Set payload\nvar payload = {};\npayload[\"certificate\"] = certificate;\npayload[\"comments\"] = comments;\n\n// Set returned msg\nvar retmsg = {};\nretmsg.method = \"post\";\nretmsg.url = \"https://\" + global.get('iotfHost')  + \"/api/v0002/authentication/cacertificates\";\n\n// Set Authorization in message headers from VCAP informtion\nvar auth = 'Basic ' + new Buffer(global.get('iotfAPIKey') + ':' + global.get('iotfAPIToken')).toString('base64');\nvar headers = {};\nheaders[\"Authorization\"] = auth;\nheaders['content-type'] = 'application/json';\nretmsg.headers = headers;\n\nretmsg.certlen = certificate.length;\nretmsg.payload = JSON.stringify(payload);\n\nreturn retmsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 595,
+        "y": 460,
+        "wires": [
+            [
+                "a78e985e.4b6888"
+            ]
+        ]
+    },
+    {
+        "id": "a78e985e.4b6888",
+        "type": "http request",
+        "z": "daad7862.cf0058",
+        "name": "http request",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 845,
+        "y": 460,
+        "wires": [
+            [
+                "eaafcc4.ad5803"
+            ]
+        ]
+    },
+    {
+        "id": "eaafcc4.ad5803",
+        "type": "debug",
+        "z": "daad7862.cf0058",
+        "name": "dbg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 1025,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "21c9ee50.2d276a",
+        "type": "inject",
+        "z": "daad7862.cf0058",
+        "name": "testTrigger",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 140,
+        "y": 300,
+        "wires": [
+            [
+                "99b00ef9.dad67"
+            ]
+        ]
+    },
+    {
+        "id": "99b00ef9.dad67",
+        "type": "function",
+        "z": "daad7862.cf0058",
+        "name": "queueRequests",
+        "func": "// dummay node added mainly for testTrigger node\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 340,
+        "y": 300,
+        "wires": [
+            [
+                "9deeac97.35069",
+                "d691236.fdae5e",
+                "201fcd9c.633e12",
+                "dc8a02eb.0cb938",
+                "b38f4a27.a5ff",
+                "eaf68025.a34438"
+            ]
+        ]
+    },
+    {
+        "id": "eaf68025.a34438",
+        "type": "function",
+        "z": "daad7862.cf0058",
+        "name": "getConnPolicy",
+        "func": "// Get current default Connection Policy\nvar retmsg = {};\nretmsg.method = \"get\";\nretmsg.url = \"https://\" + global.get('iotfHost')  + \"/api/v0002/riskmgmt/policies/\";\n\n// Set Authorization in message headers from VCAP informtion\nvar auth = 'Basic ' + new Buffer(global.get('iotfAPIKey') + ':' + global.get('iotfAPIToken')).toString('base64');\nvar headers = {};\nheaders[\"Authorization\"] = auth;\nheaders['content-type'] = 'application/json';\nretmsg.headers = headers;\n\nreturn retmsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 595,
+        "y": 520,
+        "wires": [
+            [
+                "3a492616.9d3532"
+            ]
+        ]
+    },
+    {
+        "id": "3a492616.9d3532",
+        "type": "http request",
+        "z": "daad7862.cf0058",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 845,
+        "y": 520,
+        "wires": [
+            [
+                "ad266bbd.655f48"
+            ]
+        ]
+    },
+    {
+        "id": "696cb27c.69b56c",
+        "type": "debug",
+        "z": "daad7862.cf0058",
+        "name": "dbg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1205,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "ad266bbd.655f48",
+        "type": "json",
+        "z": "daad7862.cf0058",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1025,
+        "y": 520,
+        "wires": [
+            [
+                "696cb27c.69b56c",
+                "d7cdb034.f85bd"
+            ]
+        ]
+    },
+    {
+        "id": "888eb51e.e9c4c",
+        "type": "ibmiot out",
+        "z": "4c26cae5.e5121c",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "cmd",
+        "deviceId": "70028193003559990877",
+        "deviceType": "NXP-A71CH-D",
+        "eventCommandType": "closeDoor",
+        "format": "json",
+        "data": "{\"newState\":\"closeDoor\"}",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 820,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "d617ed0c.a9a93",
+        "type": "debug",
+        "z": "4c26cae5.e5121c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 280,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "97a00308.a4e24",
+        "type": "debug",
+        "z": "4c26cae5.e5121c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 330,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "1606e814.7ca56",
+        "type": "debug",
+        "z": "4c26cae5.e5121c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 670,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "423fab65.926164",
+        "type": "http request",
+        "z": "d6f13981.f9b9a",
+        "name": "MakeRequest",
+        "method": "use",
+        "ret": "txt",
+        "url": "",
+        "tls": "",
+        "x": 620,
+        "y": 160,
+        "wires": [
+            [
+                "d12d2d6.6696dd"
+            ]
+        ]
+    },
+    {
+        "id": "d12d2d6.6696dd",
+        "type": "json",
+        "z": "d6f13981.f9b9a",
+        "name": "",
+        "pretty": false,
+        "x": 778.5001220703125,
+        "y": 159.49996948242188,
+        "wires": [
+            [
+                "1bb96ed5.d93679"
+            ]
+        ]
+    },
+    {
+        "id": "1bb96ed5.d93679",
+        "type": "function",
+        "z": "d6f13981.f9b9a",
+        "name": "SetContext",
+        "func": "\nvar results = msg.payload.results;\n\nvar devIds = global.get(\"devIds\");\nvar devStates = global.get(\"devStates\");\nvar devTypes = global.get(\"devTypes\");\nvar devRegs = global.get(\"devRegs\");\nvar devCount = global.get(\"devCount\");\n\n\nvar j;\nvar k;\nvar payload = [];\n\nif ( devCount === 0 ) {\n    for (j=0;j<results.length;j++) {\n        devIds[devCount] = results[j].deviceId;\n        devTypes[devCount] = results[j].typeId;\n        devRegs[devCount] = true;\n        devStates[devCount] = \"unknown\";\n        devCount += 1;\n    }\n} else {\n    for (j=0;j<results.length;j++) {\n        var found = 0;\n        for (k=0;k<devCount;k++) {\n            if (devIds[k] === results[j].deviceId) {\n                if (devTypes[k] === results[j].typeId) {\n                    devRegs[devCount] = true;\n                    found = 1;\n                }\n            }\n        }\n        if ( found === 0 ) {\n            devIds[devCount] = results[j].deviceId;\n            devTypes[devCount] = results[j].typeId;\n            devRegs[devCount] = true;\n            devStates[devCount] = \"unknown\";\n            devCount += 1;\n        }\n    }\n}\n\nfor (j=0;j<results.length;j++) {\n    var tdata = {};\n    tdata.deviceId = results[j].deviceId;\n    tdata.typeId = results[j].typeId;\n    payload.push(tdata);\n}\n\n// Store device data in global context \nglobal.set('devices', payload);\n\nmsg.payload =  payload;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 927.5001220703125,
+        "y": 159.49996948242188,
+        "wires": [
+            [
+                "1d8af23b.dc7156"
+            ]
+        ]
+    }
+]
+

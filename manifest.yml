@@ -1,0 +1,17 @@
+---
+applications:
+- services:
+  - a71chDoorLockDemo-cloudantNoSQLDB
+  - a71chDoorLockDemo-iot
+  memory: 768M
+  instances: 1
+  name: a71chDoorLockDemo
+  disk_quota: 1024M
+declared-services:
+  a71chDoorLockDemo-cloudantNoSQLDB:
+    label: cloudantNoSQLDB
+    plan: Lite
+  a71chDoorLockDemo-iot:
+    label: iotf-service
+    plan: iotf-service-asp
+
