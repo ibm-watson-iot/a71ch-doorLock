@@ -15,9 +15,9 @@ The Door Lock demo application demonstrates:
 
 1. Create a Bluemix Account.
 
-  [Sign up][bluemix_signup_url] for IBM Cloud, or use an existing account.
+  [Sign up](https://console.ng.bluemix.net/registration/) for IBM Cloud, or use an existing account.
 
-2. Download and install the [Cloud-foundry CLI][cloud_foundry_url] tool.
+2. Download and install the [Cloud-foundry CLI](https://github.com/cloudfoundry/cli) tool.
 
 3. Clone the app to your local environment from your terminal using the following command:
 
