@@ -11,20 +11,6 @@ The Door Lock demo application demonstrates:
 * Connect the device securely with IBM Watson IoT Platform service.
 * Invoke remote control actions on the device.
 
-## Deploy the application on Bluemix
-You can deploy your own instance of this application in IBM Cloud.
-To do this, you can either use the [_Create Toolchain_](http://ibm.biz/BdiKSi) button for an automated deployment or follow the steps below to create and deploy manually.
-
-### Using the Create Toolchain  button.
-Use the *"Create Toolchain"* button below, to deploy this app to IBM Cloud using IBM DevOps.
-If you are in the US South region, use the below button
-
-[![Create Toolchain](https://console.ng.bluemix.net/devops/graphics/create_toolchain_button.png)](http://ibm.biz/BdiKSi)
-
-For other regions, please click the below *Deploy to Bluemix*
-
-[![Deploy to Bluemix](https://console.ng.bluemix.net/devops/setup/deploy/button_x2.png)](http://ibm.biz/Bdi8VY)
-
 ### Manually deploying the App in Bluemix
 
 1. Create a Bluemix Account.
@@ -36,7 +22,7 @@ For other regions, please click the below *Deploy to Bluemix*
 3. Clone the app to your local environment from your terminal using the following command:
 
   ```
-  git clone https://github.com/ibm-watson-iot/a71ch-doorLock-demo.git
+  git clone https://github.com/ibm-watson-iot/a71ch-doorLock.git
   ```
 
 4. `cd` into this newly created directory.
