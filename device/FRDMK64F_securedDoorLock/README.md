@@ -16,9 +16,7 @@ how to build client code for FRDM-K64F:
 Copy the following files added in this github project in "mbedtls_frdm64f_freertos_ibm_watson_demo" project in MCUXpresso IDE:
 
 * ibm_watson_demo.c
-* ibm_iot_config.h
 
-Edit *ibm_iot_config.h* file and change Watson IoT Platform service organization ID.
 
 Use the steps as defined in Section 5 of "A71CH for Secure connection to IBM Watson IoT" document, 
 to run and publish the demo application
